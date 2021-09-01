@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection: Tab = .featured
+    
+    @State var destinations = [Destination]()
 
     enum Tab {
         case featured
@@ -29,6 +31,14 @@ struct ContentView: View {
                 }
                 .tag(Tab.list)
         }
+        
+//        List(destinations) { destination in
+//            Text("\(destination.name)")
+//        }.onAppear() {
+//            Api().loadData { (destinations) in
+//                self.destinations = destinations
+//            }
+//        }.navigationTitle("Book List")
     }
 }
 
