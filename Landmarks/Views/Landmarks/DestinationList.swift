@@ -7,13 +7,13 @@ A view showing a list of landmarks.
 
 import SwiftUI
 
-struct LandmarkList: View {
+struct DestinationList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
 
-    var filteredLandmarks: [Landmark] {
-        modelData.landmarks.filter { landmark in
-            (!showFavoritesOnly || landmark.isFavorite)
+    var filteredDestinations: [Destination] {
+        modelData.destinations.filter { destination in
+            (!showFavoritesOnly || destination.isFavorite)
         }
     }
 
@@ -24,20 +24,20 @@ struct LandmarkList: View {
                     Text("Favorites only")
                 }
 
-                ForEach(filteredLandmarks) { landmark in
-                    NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
-                        LandmarkRow(landmark: landmark)
+                ForEach(filteredDestinations) { destination in
+                    NavigationLink(destination: DestinationDetail(destination: destination)) {
+                        DestinationRow(destination: destination)
                     }
                 }
             }
-            .navigationTitle("Landmarks")
+            .navigationTitle("Destinations")
         }
     }
 }
 
-struct LandmarkList_Previews: PreviewProvider {
+struct DestinationList_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkList()
+        DestinationList()
             .environmentObject(ModelData())
     }
 }

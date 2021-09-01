@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection: Tab = .featured
     
-    @State var destinations = [Destination]()
+    @EnvironmentObject var modelData: ModelData
 
     enum Tab {
         case featured
@@ -25,20 +25,14 @@ struct ContentView: View {
                 }
                 .tag(Tab.featured)
 
-            LandmarkList()
+            DestinationList()
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
                 }
                 .tag(Tab.list)
+        }.onAppear() {
+            modelData.loadData()
         }
-        
-//        List(destinations) { destination in
-//            Text("\(destination.name)")
-//        }.onAppear() {
-//            Api().loadData { (destinations) in
-//                self.destinations = destinations
-//            }
-//        }.navigationTitle("Book List")
     }
 }
 

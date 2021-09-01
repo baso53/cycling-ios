@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Destination: Codable, Identifiable {
     var id: String { name }
@@ -17,4 +18,11 @@ struct Destination: Codable, Identifiable {
     
     var isFavorite: Bool
     var isConfirmed: Bool
+    
+    var locationCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: self.latitude,
+            longitude: self.longitude
+        )
+    }
 }

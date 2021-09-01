@@ -8,15 +8,36 @@ A view that presents a map of a landmark.
 import SwiftUI
 import MapKit
 
+extension CLLocationCoordinate2D: Identifiable {
+    public var id: String { String(format: "%f,%f", latitude, longitude) }
+}
+
 struct MapView: View {
     var coordinate: CLLocationCoordinate2D
+    var annotations: [CLLocationCoordinate2D]
+    
+    init(coordinate: CLLocationCoordinate2D, annotations: [CLLocationCoordinate2D]? = nil) {
+        self.coordinate = coordinate
+        self.annotations = annotations ?? [coordinate]
+    }
+    
     @State private var region = MKCoordinateRegion()
 
     var body: some View {
-        Map(coordinateRegion: $region)
+        Map(
+          coordinateRegion: $region,
+            annotationItems: annotations,
+          annotationContent: {
+            n in MapMarker(
+                coordinate: n,
+              tint: .red
+            )
+          }
+        )
             .onAppear {
                 setRegion(coordinate)
             }
+            
     }
 
     private func setRegion(_ coordinate: CLLocationCoordinate2D) {
@@ -29,6 +50,8 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+        MapView(
+            coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868)
+        )
     }
 }

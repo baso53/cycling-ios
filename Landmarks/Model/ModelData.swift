@@ -12,6 +12,7 @@ final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
     @Published var profile = Profile.default
+    
 
     var features: [Landmark] {
         landmarks.filter { $0.isFeatured }
@@ -22,6 +23,23 @@ final class ModelData: ObservableObject {
             grouping: landmarks,
             by: { $0.category.rawValue }
         )
+    }
+    
+    @Published var destinations = [Destination]()
+    
+    func loadData() {
+        guard let url = URL(string: "http://localhost:8080/destinations") else {
+            print("Invalid url...")
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            let destinations = try! JSONDecoder().decode([Destination].self, from: data!)
+            print(destinations)
+            DispatchQueue.main.async {
+                self.destinations = destinations
+            }
+        }.resume()
+        
     }
 }
 
