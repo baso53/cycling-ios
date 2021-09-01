@@ -28,16 +28,15 @@ struct MapView: View {
           coordinateRegion: $region,
             annotationItems: annotations,
           annotationContent: {
-            n in MapMarker(
-                coordinate: n,
+            coordinate in MapMarker(
+                coordinate: coordinate,
               tint: .red
             )
           }
         )
-            .onAppear {
-                setRegion(coordinate)
-            }
-            
+        .onAppear {
+            setRegion(coordinate)
+        }
     }
 
     private func setRegion(_ coordinate: CLLocationCoordinate2D) {
