@@ -1,9 +1,9 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A view that presents a map of a landmark.
-*/
+ See LICENSE folder for this sample’s licensing information.
+ 
+ Abstract:
+ A view that presents a map of a landmark.
+ */
 
 import SwiftUI
 import MapKit
@@ -22,23 +22,31 @@ struct MapView: View {
     }
     
     @State private var region = MKCoordinateRegion()
-
+    
+    @State private var active = ""
+    
     var body: some View {
         Map(
-          coordinateRegion: $region,
-            annotationItems: annotations,
-          annotationContent: {
-            coordinate in MapMarker(
-                coordinate: coordinate,
-              tint: .red
-            )
-          }
-        )
+            coordinateRegion: $region,
+            annotationItems: annotations
+        ) { item in
+            MapAnnotation(
+                coordinate: item,
+                anchorPoint: CGPoint(x: 0.5, y: 0.7)
+            ) {
+                Image(systemName: "mappin")
+                    .font(.title)
+                    .foregroundColor(active == item.id ? .red : .black)
+                    .onTapGesture {
+                        active = active == item.id ? "" : item.id
+                    }
+            }
+        }
         .onAppear {
             setRegion(coordinate)
         }
     }
-
+    
     private func setRegion(_ coordinate: CLLocationCoordinate2D) {
         region = MKCoordinateRegion(
             center: coordinate,
