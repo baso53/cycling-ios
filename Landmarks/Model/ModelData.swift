@@ -7,13 +7,30 @@ Storage for model data.
 
 import Foundation
 import Combine
+import CoreLocation
 
-final class ModelData: ObservableObject {
-    @Published var landmarks: [Landmark] = load("landmarkData.json")
-    var hikes: [Hike] = load("hikeData.json")
+
+class ModelData: NSObject, ObservableObject {
+    @Published var landmarks: [Landmark] = []
+    var hikes: [Hike] = []
     @Published var profile = Profile.default
     
+    private let locationManager = CLLocationManager()
+    @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
 
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+    }
+    
+    public func requestAuthorisation(always: Bool = false) {
+        if always {
+            self.locationManager.requestAlwaysAuthorization()
+        } else {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
     var features: [Landmark] {
         landmarks.filter { $0.isFeatured }
     }
@@ -43,24 +60,9 @@ final class ModelData: ObservableObject {
     }
 }
 
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
+extension ModelData: CLLocationManagerDelegate {
 
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else {
-            fatalError("Couldn't find \(filename) in main bundle.")
-    }
-
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.authorisationStatus = status
     }
 }

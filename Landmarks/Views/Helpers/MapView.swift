@@ -25,9 +25,14 @@ struct MapView: View {
     
     @State private var active = ""
     
+    @State private var userTrackingMode: MapUserTrackingMode = .follow
+    
     var body: some View {
         Map(
             coordinateRegion: $region,
+            interactionModes: MapInteractionModes.all,
+            showsUserLocation: true,
+            userTrackingMode: $userTrackingMode,
             annotationItems: annotations
         ) { item in
             MapAnnotation(

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Open GPX Tracker for iOS">
+  <wpt lat="45.7916563" lon="15.9326732"> 
+    <time>2021-09-02T08:00:25Z</time>
+    <name>Zagreb1</name>
+    <desc>Description of point 1</desc>
+  </wpt>
+  <wpt lat="45.7916563" lon="15.9326732"> 
+    <time>2021-09-02T08:01:25Z</time>
+    <name>Zagreb2</name>
+    <desc>Description of point 1</desc>
+  </wpt>
+  <wpt lat="45.7916563" lon="15.9326732"> 
+    <time>2021-09-02T08:02:25Z</time>
+    <name>Zagreb3</name>
+    <desc>Description of point 1</desc>
+  </wpt>
+</gpx>
