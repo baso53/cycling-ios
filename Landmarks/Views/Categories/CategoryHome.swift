@@ -10,37 +10,43 @@ import CoreLocation
 
 struct CategoryHome: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var showingProfile = false
+    @State private var showingProfile = ""
+    
+    private var isShown: Binding<Bool> { Binding (
+        get: { !showingProfile.isEmpty },
+        set: { _ in self.showingProfile = "" }
+    )}
     
     var body: some View {
-        ScrollView {
+        NavigationView {
             VStack {
-                MapView(coordinate: CLLocationCoordinate2D(
-                    latitude: 46,
-                    longitude: 16
-                ), annotations: modelData.destinations.map({ destination in
-                    destination.locationCoordinate
-                }))
-                .ignoresSafeArea(edges: .top)
-                .frame(height: 300)
+                MapView(
+                    selected: $showingProfile,
+                    coordinate: CLLocationCoordinate2D(
+                        latitude: 46,
+                        longitude: 16
+                    ),
+                    annotations: modelData.destinations.map({ destination in
+                        destination.locationCoordinate
+                    }))
+            }
+            .navigationTitle("Featured")
+            .toolbar {
+                Button(action: { modelData.requestAuthorisation() }) {
+                    Image(systemName: "person.crop.circle")
+                        .accessibilityLabel("User Profile")
+                }
+            }
+            .sheet(isPresented: isShown) {
+                let index = modelData.destinations.firstIndex(where: { destination in
+                    String(format: "%f,%f", destination.latitude, destination.longitude) == showingProfile
+                })!
+                let destination = modelData.destinations[index]
                 
-                Button(action: { modelData.requestAuthorisation() }, label: {
-                    Text("Button")
-                })
+                DestinationDetail(destination: destination)
             }
         }
-        .navigationTitle("Featured")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            Button(action: { showingProfile.toggle() }) {
-                Image(systemName: "person.crop.circle")
-                    .accessibilityLabel("User Profile")
-            }
-        }
-        .sheet(isPresented: $showingProfile) {
-            ProfileHost()
-                .environmentObject(modelData)
-        }
+        
     }
 }
 

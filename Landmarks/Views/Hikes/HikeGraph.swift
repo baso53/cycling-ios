@@ -69,16 +69,8 @@ func magnitude(of range: Range<Double>) -> Double {
 }
 
 struct HikeGraph_Previews: PreviewProvider {
-    static var hike = ModelData().hikes[0]
-
     static var previews: some View {
-        Group {
-            HikeGraph(hike: hike, path: \.elevation)
+            HikeGraph(hike: Hike(id: 1, name: "s", distance: 100.0, difficulty: 2, observations: []), path: \.elevation)
                 .frame(height: 200)
-            HikeGraph(hike: hike, path: \.heartRate)
-                .frame(height: 200)
-            HikeGraph(hike: hike, path: \.pace)
-                .frame(height: 200)
-        }
     }
 }

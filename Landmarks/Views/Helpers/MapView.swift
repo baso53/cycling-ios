@@ -13,18 +13,13 @@ extension CLLocationCoordinate2D: Identifiable {
 }
 
 struct MapView: View {
+    @Binding var selected: String
+    
     var coordinate: CLLocationCoordinate2D
     var annotations: [CLLocationCoordinate2D]
-    
-    init(coordinate: CLLocationCoordinate2D, annotations: [CLLocationCoordinate2D]? = nil) {
-        self.coordinate = coordinate
-        self.annotations = annotations ?? [coordinate]
-    }
-    
+
     @State private var region = MKCoordinateRegion()
-    
-    @State private var active = ""
-    
+        
     @State private var userTrackingMode: MapUserTrackingMode = .follow
     
     var body: some View {
@@ -37,13 +32,11 @@ struct MapView: View {
         ) { item in
             MapAnnotation(
                 coordinate: item,
-                anchorPoint: CGPoint(x: 0.5, y: 0.7)
+                anchorPoint: CGPoint(x: 0.5, y: 0)
             ) {
-                Image(systemName: "mappin")
-                    .font(.title)
-                    .foregroundColor(active == item.id ? .red : .black)
+                Image(selected == item.id ? "maps-and-flags-green" : "maps-and-flags-black" )
                     .onTapGesture {
-                        active = active == item.id ? "" : item.id
+                        self.selected = item.id
                     }
             }
         }
@@ -60,10 +53,11 @@ struct MapView: View {
     }
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView(
-            coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868)
-        )
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView(
+//            action: {_ in },
+//            coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868)
+//        )
+//    }
+//}

@@ -12,9 +12,12 @@ struct DestinationRow: View {
 
     var body: some View {
         HStack {
-//            landmark.image
-//                .resizable()
-//                .frame(width: 50, height: 50)
+            Text(destination.name.prefix(1))
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .frame(width: 35, height: 35, alignment: .center)
+                .overlay(Circle().stroke(Color.gray, lineWidth: 3).padding(1))
+                .foregroundColor(.green)
+            
             Text(destination.name)
 
             Spacer()
@@ -31,10 +34,7 @@ struct LandmarkRow_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        Group {
-            DestinationRow(destination: modelData.destinations[0])
-            DestinationRow(destination: modelData.destinations[1])
-        }
+        DestinationRow(destination: Destination(name: "Sebo", latitude: 42.123123, longitude: 16.123123, isFavorite: true, isConfirmed: false))
         .previewLayout(.fixed(width: 300, height: 70))
     }
 }

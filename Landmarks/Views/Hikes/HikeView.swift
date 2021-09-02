@@ -60,7 +60,7 @@ struct HikeView: View {
 struct HikeView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            HikeView(hike: ModelData().hikes[0])
+            HikeView(hike: Hike(id: 1, name: "s", distance: 100.0, difficulty: 2, observations: []))
                 .padding()
             Spacer()
         }
