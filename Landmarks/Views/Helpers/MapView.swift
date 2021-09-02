@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 extension CLLocationCoordinate2D: Identifiable {
-    public var id: String { String(format: "%f,%f", latitude, longitude) }
+    public var id: String { idFromCoordinates(latitude, longitude) }
 }
 
 struct MapView: View {
@@ -32,9 +32,11 @@ struct MapView: View {
         ) { item in
             MapAnnotation(
                 coordinate: item,
-                anchorPoint: CGPoint(x: 0.5, y: 0)
+                anchorPoint: CGPoint(x: 0.5, y: 1)
             ) {
                 Image(selected == item.id ? "maps-and-flags-green" : "maps-and-flags-black" )
+                    .resizable()
+                    .frame(width: 40, height: 40)
                     .onTapGesture {
                         self.selected = item.id
                     }

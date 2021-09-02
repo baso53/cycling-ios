@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7A65410226E0B8F3001EDC6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A65410126E0B8F3001EDC6C /* MapKit.framework */; };
+		7A65410526E0F187001EDC6C /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410426E0F187001EDC6C /* ScannerViewModel.swift */; };
+		7A65410726E0F21D001EDC6C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410626E0F21D001EDC6C /* ScannerView.swift */; };
+		7A65410926E0F2A9001EDC6C /* QrCodeCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410826E0F2A9001EDC6C /* QrCodeCameraDelegate.swift */; };
+		7A65410B26E0F303001EDC6C /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410A26E0F303001EDC6C /* CameraPreview.swift */; };
+		7A65410D26E0F340001EDC6C /* QrCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410C26E0F340001EDC6C /* QrCodeScannerView.swift */; };
+		7A65411126E0FD23001EDC6C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65411026E0FD23001EDC6C /* HelperFunctions.swift */; };
 		7A959B1926DFA56600190CA6 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A959B1826DFA56600190CA6 /* Destination.swift */; };
 		C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */; };
 		C20D77F024B665D7002E7AEA /* DestinationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77EF24B665D7002E7AEA /* DestinationDetail.swift */; };
@@ -31,6 +37,12 @@
 /* Begin PBXFileReference section */
 		7A6540FF26E0B051001EDC6C /* gps1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = gps1.gpx; sourceTree = "<group>"; };
 		7A65410126E0B8F3001EDC6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7A65410426E0F187001EDC6C /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		7A65410626E0F21D001EDC6C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		7A65410826E0F2A9001EDC6C /* QrCodeCameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeCameraDelegate.swift; sourceTree = "<group>"; };
+		7A65410A26E0F303001EDC6C /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		7A65410C26E0F340001EDC6C /* QrCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeScannerView.swift; sourceTree = "<group>"; };
+		7A65411026E0FD23001EDC6C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		7A959B1826DFA56600190CA6 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		8C249B054B1162DF28CD504A /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		9468E2AE3DC3F388E84A29BD /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -92,6 +104,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7A65410326E0F15F001EDC6C /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				7A65410626E0F21D001EDC6C /* ScannerView.swift */,
+				7A65410A26E0F303001EDC6C /* CameraPreview.swift */,
+				7A65410C26E0F340001EDC6C /* QrCodeScannerView.swift */,
+			);
+			path = Scanning;
+			sourceTree = "<group>";
+		};
+		7A65410E26E0F822001EDC6C /* Destinations */ = {
+			isa = PBXGroup;
+			children = (
+				C20D780A24B68B4D002E7AEA /* DestinationList.swift */,
+				C20D780024B6846F002E7AEA /* DestinationRow.swift */,
+				C20D77EF24B665D7002E7AEA /* DestinationDetail.swift */,
+			);
+			path = Destinations;
+			sourceTree = "<group>";
+		};
+		7A65410F26E0FD0B001EDC6C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7A65410826E0F2A9001EDC6C /* QrCodeCameraDelegate.swift */,
+				7A65411026E0FD23001EDC6C /* HelperFunctions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C20D77E124B665D7002E7AEA = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +157,7 @@
 		C20D77EC24B665D7002E7AEA /* Landmarks */ = {
 			isa = PBXGroup;
 			children = (
+				7A65410F26E0FD0B001EDC6C /* Utils */,
 				C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */,
 				C2FEB32D24B7C802004FAB73 /* Views */,
 				C20D780824B685C4002E7AEA /* Model */,
@@ -141,6 +183,7 @@
 				C20D780424B684EC002E7AEA /* ModelData.swift */,
 				C20D781F24B6CCCF002E7AEA /* Hike.swift */,
 				7A959B1826DFA56600190CA6 /* Destination.swift */,
+				7A65410426E0F187001EDC6C /* ScannerViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,23 +227,14 @@
 		C2FEB32D24B7C802004FAB73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A65410E26E0F822001EDC6C /* Destinations */,
+				7A65410326E0F15F001EDC6C /* Scanning */,
 				C2C5839D24DB739600DD0019 /* ContentView.swift */,
 				C2C583A024DB73C300DD0019 /* Categories */,
-				C2FEB32E24B7C83E004FAB73 /* Landmarks */,
 				C20D781E24B6CCB6002E7AEA /* Hikes */,
 				C2C583A124DB74DE00DD0019 /* Helpers */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C2FEB32E24B7C83E004FAB73 /* Landmarks */ = {
-			isa = PBXGroup;
-			children = (
-				C20D780A24B68B4D002E7AEA /* DestinationList.swift */,
-				C20D780024B6846F002E7AEA /* DestinationRow.swift */,
-				C20D77EF24B665D7002E7AEA /* DestinationDetail.swift */,
-			);
-			path = Landmarks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,16 +311,22 @@
 				C20D782024B6CCCF002E7AEA /* Hike.swift in Sources */,
 				7A959B1926DFA56600190CA6 /* Destination.swift in Sources */,
 				C20D782224B6CD01002E7AEA /* HikeGraph.swift in Sources */,
+				7A65410726E0F21D001EDC6C /* ScannerView.swift in Sources */,
 				C20D780524B684EC002E7AEA /* ModelData.swift in Sources */,
 				C20D77F024B665D7002E7AEA /* DestinationDetail.swift in Sources */,
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				C2C5839E24DB739600DD0019 /* ContentView.swift in Sources */,
+				7A65410526E0F187001EDC6C /* ScannerViewModel.swift in Sources */,
+				7A65410D26E0F340001EDC6C /* QrCodeScannerView.swift in Sources */,
+				7A65410B26E0F303001EDC6C /* CameraPreview.swift in Sources */,
 				C20D780B24B68B4D002E7AEA /* DestinationList.swift in Sources */,
 				C2C583A524DB754900DD0019 /* FavoriteButton.swift in Sources */,
 				C2FEB32824B7B498004FAB73 /* CategoryHome.swift in Sources */,
+				7A65411126E0FD23001EDC6C /* HelperFunctions.swift in Sources */,
 				C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */,
 				C20D780124B6846F002E7AEA /* DestinationRow.swift in Sources */,
 				C20D781B24B6CC68002E7AEA /* HikeView.swift in Sources */,
+				7A65410926E0F2A9001EDC6C /* QrCodeCameraDelegate.swift in Sources */,
 				C20D782424B6CD23002E7AEA /* GraphCapsule.swift in Sources */,
 				C20D781D24B6CCA4002E7AEA /* HikeDetail.swift in Sources */,
 			);
@@ -421,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarks/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4K26RS8A8N;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Landmarks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -445,7 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarks/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4K26RS8A8N;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Landmarks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

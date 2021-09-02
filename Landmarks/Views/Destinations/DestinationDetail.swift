@@ -11,9 +11,12 @@ struct DestinationDetail: View {
     @EnvironmentObject var modelData: ModelData
     var destination: Destination
     
-    @State private var selectedId = ""
     @State private var isSelected = false
-
+    
+    private var selectedId: Binding<String> { Binding (
+        get: { idFromCoordinates(destination.latitude, destination.longitude) },
+        set: { _ in }
+    )}
     
     var destinationIndex: Int {
         modelData.destinations.firstIndex(where: { $0.id == destination.id })!
@@ -22,14 +25,15 @@ struct DestinationDetail: View {
     var body: some View {
         ScrollView {
             Text(destination.name.prefix(1))
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .frame(width: 35, height: 35, alignment: .center)
-                .overlay(Circle().stroke(Color.gray, lineWidth: 3).padding(1))
+                .font(Font.custom("sebo", size: 150.0))
+                .frame(width: 150, height: 150, alignment: .center)
+                .overlay(Circle().stroke(Color.gray, lineWidth: 20).padding(1))
                 .foregroundColor(.green)
-                .offset(y: -5)
+                .offset(y: -30)
+                .padding(.bottom, -80)
             
-            MapView(selected: $selectedId,
-                    coordinate: destination.locationCoordinate, annotations: [])
+            MapView(selected: selectedId,
+                    coordinate: destination.locationCoordinate, annotations: [destination.locationCoordinate])
                 .ignoresSafeArea(edges: .top)
                 .frame(height: 300)
             

@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>For scanning QR codes as a confirmation of being on location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To tell him how distant he is from multiple destinations</string>
+	<string>To tell user how distant he is from multiple destinations</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -30,6 +32,12 @@
 		<dict/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>192.168.1.26</key>
+			<dict/>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSIncludesSubdomains</key>
+			<true/>
 			<key>localhost:8080</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>

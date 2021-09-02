@@ -15,6 +15,7 @@ struct ContentView: View {
     enum Tab {
         case featured
         case list
+        case scan
     }
 
     var body: some View {
@@ -28,6 +29,12 @@ struct ContentView: View {
             DestinationList()
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
+                }
+                .tag(Tab.list)
+            
+            ScannerView()
+                .tabItem {
+                    Label("Scan", systemImage: "qrcode.viewfinder")
                 }
                 .tag(Tab.list)
         }.onAppear() {

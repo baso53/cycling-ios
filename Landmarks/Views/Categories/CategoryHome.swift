@@ -39,7 +39,7 @@ struct CategoryHome: View {
             }
             .sheet(isPresented: isShown) {
                 let index = modelData.destinations.firstIndex(where: { destination in
-                    String(format: "%f,%f", destination.latitude, destination.longitude) == showingProfile
+                    idFromCoordinates(destination.latitude, destination.longitude) == showingProfile
                 })!
                 let destination = modelData.destinations[index]
                 

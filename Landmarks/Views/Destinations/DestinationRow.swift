@@ -14,8 +14,8 @@ struct DestinationRow: View {
         HStack {
             Text(destination.name.prefix(1))
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .frame(width: 35, height: 35, alignment: .center)
-                .overlay(Circle().stroke(Color.gray, lineWidth: 3).padding(1))
+                .frame(width: 40, height: 40, alignment: .center)
+                .overlay(Circle().stroke(Color.gray, lineWidth: 4).padding(1))
                 .foregroundColor(.green)
             
             Text(destination.name)
