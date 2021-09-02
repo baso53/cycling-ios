@@ -9,20 +9,25 @@
 import SwiftUI
 
 struct ScannerView: View {
-    @ObservedObject var viewModel = ScannerViewModel()
+    @State var torchIsOn: Bool = false
+    @State var lastQrCode: String = "Qr-code goes here"
+    @State var isShown: Bool = false
     
     var body: some View {
         ZStack {
             QrCodeScannerView()
-            .found(r: self.viewModel.onFoundQrCode)
-            .torchLight(isOn: self.viewModel.torchIsOn)
-            .interval(delay: self.viewModel.scanInterval)
+                .found(r: { qrCode in
+                    self.lastQrCode = qrCode
+                    self.isShown = true
+                })
+            .torchLight(isOn: torchIsOn)
+            .interval(delay: 1.0)
             
             VStack {
                 VStack {
                     Text("Keep scanning for QR-codes")
                         .font(.subheadline)
-                    Text(self.viewModel.lastQrCode)
+                    Text(self.lastQrCode)
                         .bold()
                         .lineLimit(5)
                         .padding()
@@ -32,11 +37,11 @@ struct ScannerView: View {
                 Spacer()
                 HStack {
                     Button(action: {
-                        self.viewModel.torchIsOn.toggle()
+                        self.torchIsOn.toggle()
                     }, label: {
-                        Image(systemName: self.viewModel.torchIsOn ? "bolt.fill" : "bolt.slash.fill")
+                        Image(systemName: self.torchIsOn ? "bolt.fill" : "bolt.slash.fill")
                             .imageScale(.large)
-                            .foregroundColor(self.viewModel.torchIsOn ? Color.yellow : Color.blue)
+                            .foregroundColor(self.torchIsOn ? Color.yellow : Color.blue)
                             .padding()
                     })
                 }
@@ -45,6 +50,11 @@ struct ScannerView: View {
                 
             }.padding()
         }
+        .sheet(isPresented: $isShown) {
+            ScannedCodeSheet(qrCode: lastQrCode)
+        }
+        
+        
     }
 }
 

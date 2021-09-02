@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7A65410226E0B8F3001EDC6C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A65410126E0B8F3001EDC6C /* MapKit.framework */; };
-		7A65410526E0F187001EDC6C /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410426E0F187001EDC6C /* ScannerViewModel.swift */; };
 		7A65410726E0F21D001EDC6C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410626E0F21D001EDC6C /* ScannerView.swift */; };
 		7A65410926E0F2A9001EDC6C /* QrCodeCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410826E0F2A9001EDC6C /* QrCodeCameraDelegate.swift */; };
 		7A65410B26E0F303001EDC6C /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410A26E0F303001EDC6C /* CameraPreview.swift */; };
 		7A65410D26E0F340001EDC6C /* QrCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65410C26E0F340001EDC6C /* QrCodeScannerView.swift */; };
 		7A65411126E0FD23001EDC6C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65411026E0FD23001EDC6C /* HelperFunctions.swift */; };
+		7A65411326E0FF8A001EDC6C /* ScannedCodeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65411226E0FF8A001EDC6C /* ScannedCodeSheet.swift */; };
+		7A65411526E10004001EDC6C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65411426E10004001EDC6C /* ActivityIndicator.swift */; };
+		7A65411726E1064B001EDC6C /* ConfirmationOutbound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A65411626E1064B001EDC6C /* ConfirmationOutbound.swift */; };
 		7A959B1926DFA56600190CA6 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A959B1826DFA56600190CA6 /* Destination.swift */; };
 		C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */; };
 		C20D77F024B665D7002E7AEA /* DestinationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77EF24B665D7002E7AEA /* DestinationDetail.swift */; };
@@ -37,12 +39,14 @@
 /* Begin PBXFileReference section */
 		7A6540FF26E0B051001EDC6C /* gps1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = gps1.gpx; sourceTree = "<group>"; };
 		7A65410126E0B8F3001EDC6C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		7A65410426E0F187001EDC6C /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		7A65410626E0F21D001EDC6C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		7A65410826E0F2A9001EDC6C /* QrCodeCameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeCameraDelegate.swift; sourceTree = "<group>"; };
 		7A65410A26E0F303001EDC6C /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		7A65410C26E0F340001EDC6C /* QrCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeScannerView.swift; sourceTree = "<group>"; };
 		7A65411026E0FD23001EDC6C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		7A65411226E0FF8A001EDC6C /* ScannedCodeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedCodeSheet.swift; sourceTree = "<group>"; };
+		7A65411426E10004001EDC6C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		7A65411626E1064B001EDC6C /* ConfirmationOutbound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationOutbound.swift; sourceTree = "<group>"; };
 		7A959B1826DFA56600190CA6 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		8C249B054B1162DF28CD504A /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		9468E2AE3DC3F388E84A29BD /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				7A65410626E0F21D001EDC6C /* ScannerView.swift */,
 				7A65410A26E0F303001EDC6C /* CameraPreview.swift */,
 				7A65410C26E0F340001EDC6C /* QrCodeScannerView.swift */,
+				7A65411226E0FF8A001EDC6C /* ScannedCodeSheet.swift */,
 			);
 			path = Scanning;
 			sourceTree = "<group>";
@@ -183,7 +188,7 @@
 				C20D780424B684EC002E7AEA /* ModelData.swift */,
 				C20D781F24B6CCCF002E7AEA /* Hike.swift */,
 				7A959B1826DFA56600190CA6 /* Destination.swift */,
-				7A65410426E0F187001EDC6C /* ScannerViewModel.swift */,
+				7A65411626E1064B001EDC6C /* ConfirmationOutbound.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			children = (
 				C20D77FE24B67FB3002E7AEA /* MapView.swift */,
 				C2C583A424DB754900DD0019 /* FavoriteButton.swift */,
+				7A65411426E10004001EDC6C /* ActivityIndicator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -316,9 +322,10 @@
 				C20D77F024B665D7002E7AEA /* DestinationDetail.swift in Sources */,
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				C2C5839E24DB739600DD0019 /* ContentView.swift in Sources */,
-				7A65410526E0F187001EDC6C /* ScannerViewModel.swift in Sources */,
 				7A65410D26E0F340001EDC6C /* QrCodeScannerView.swift in Sources */,
 				7A65410B26E0F303001EDC6C /* CameraPreview.swift in Sources */,
+				7A65411326E0FF8A001EDC6C /* ScannedCodeSheet.swift in Sources */,
+				7A65411526E10004001EDC6C /* ActivityIndicator.swift in Sources */,
 				C20D780B24B68B4D002E7AEA /* DestinationList.swift in Sources */,
 				C2C583A524DB754900DD0019 /* FavoriteButton.swift in Sources */,
 				C2FEB32824B7B498004FAB73 /* CategoryHome.swift in Sources */,
@@ -329,6 +336,7 @@
 				7A65410926E0F2A9001EDC6C /* QrCodeCameraDelegate.swift in Sources */,
 				C20D782424B6CD23002E7AEA /* GraphCapsule.swift in Sources */,
 				C20D781D24B6CCA4002E7AEA /* HikeDetail.swift in Sources */,
+				7A65411726E1064B001EDC6C /* ConfirmationOutbound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

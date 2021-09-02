@@ -43,6 +43,32 @@ class ModelData: NSObject, ObservableObject {
         }.resume()
         
     }
+    
+    func verifyQRCode(qrCode: String, onFinish: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+        guard let url = URL(string: "http://192.168.1.26:8080/confirmation") else {
+            print("Invalid url...")
+            return
+        }
+        
+        guard let encoded = try? JSONEncoder().encode(ConfirmationOutbound(hash: qrCode)) else {
+            print("Failed to encode order")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = encoded
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                onFinish(data, response, error)
+            }
+        }.resume()
+        
+        
+
+    }
 }
 
 extension ModelData: CLLocationManagerDelegate {
