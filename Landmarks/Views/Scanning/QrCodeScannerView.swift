@@ -85,7 +85,7 @@ struct QrCodeScannerView: UIViewRepresentable {
         #else
         checkCameraAuthorizationStatus(cameraView)
         #endif
-        
+
         return cameraView
     }
     

@@ -11,7 +11,7 @@ import CoreLocation
 
 
 class ModelData: NSObject, ObservableObject {
-    private let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     @Published var authorisationStatus: CLAuthorizationStatus = .notDetermined
 
     override init() {

@@ -37,7 +37,7 @@ struct DestinationDetail: View {
                 .ignoresSafeArea(edges: .top)
                 .frame(height: 300)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 HStack {
                     Text(destination.name)
                         .font(.title)
@@ -52,6 +52,10 @@ struct DestinationDetail: View {
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+                
+                FBLoginView()
+                    .fixedSize()
+                    .padding()
             }
             .padding()
         }
@@ -61,10 +65,8 @@ struct DestinationDetail: View {
 }
 
 struct DestinationDetail_Previews: PreviewProvider {
-    static let modelData = ModelData()
-    
     static var previews: some View {
-        DestinationDetail(destination: modelData.destinations[0])
-            .environmentObject(modelData)
+        DestinationDetail(destination: Destination(name: "sebo", latitude: 3.0, longitude: 20.0, isFavorite: true, isConfirmed: true))
+            .environmentObject(ModelData())
     }
 }
