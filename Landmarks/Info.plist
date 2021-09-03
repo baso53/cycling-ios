@@ -32,12 +32,15 @@
 		<dict/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>cycling-app.eu-central-1.elasticbeanstalk.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>192.168.1.26</key>
 			<dict/>
-			<key>NSExceptionAllowsInsecureHTTPLoads</key>
-			<true/>
-			<key>NSIncludesSubdomains</key>
-			<true/>
 			<key>localhost:8080</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>

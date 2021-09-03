@@ -29,6 +29,8 @@ struct ScannedCodeSheet: View {
             modelData.verifyQRCode(qrCode: qrCode) { data, response, error in
                 if (data == nil) {
                     self.error = true
+                } else {
+                    self.isProgressVisible = false
                 }
             }
         }

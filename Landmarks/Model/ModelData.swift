@@ -30,7 +30,7 @@ class ModelData: NSObject, ObservableObject {
     @Published var destinations = [Destination]()
     
     func loadData() {
-        guard let url = URL(string: "http://192.168.1.26:8080/destinations") else {
+        guard let url = URL(string: "http://cycling-app.eu-central-1.elasticbeanstalk.com/destinations") else {
             print("Invalid url...")
             return
         }
@@ -45,7 +45,7 @@ class ModelData: NSObject, ObservableObject {
     }
     
     func verifyQRCode(qrCode: String, onFinish: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
-        guard let url = URL(string: "http://192.168.1.26:8080/confirmation") else {
+        guard let url = URL(string: "http://cycling-app.eu-central-1.elasticbeanstalk.com/confirmation") else {
             print("Invalid url...")
             return
         }
